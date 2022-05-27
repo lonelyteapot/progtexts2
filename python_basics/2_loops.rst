@@ -210,46 +210,47 @@
 
 выводит на экран таблицу умножения.
 
-Про команды break и continue
+About break and continue statements
 ----------------------------
 
-При работе с циклами есть две полезных команды — break и continue. Здесь
-я опишу, что они делают и как их использовать.
+When working with loops, there are two useful statements — *break* and
+*continue*. This is what they do and how to use them.
 
-Понятие тела цикла и итерации
+Definitions of the loop body and iteration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Сначала введу/повторю несколько терминов, которые полезны при обсуждении циклов.
+First, I am introducing/restating a few terms that are useful when discussing
+loops.
 
-**Тело** цикла — это собственно те команды, которые находятся внутри
-цикла. Например, в цикле
+A **loop body** is essentially the combination of commands that are inside the
+loop. For example, in this loop
 
 ::
 
     for i in range(1, n + 1):
         a = i * i
         print(i, a)
-    
 
-тело цикла состоит из двух команд: присваивания и вывода.
 
-**Итерацией** называется каждый отдельный проход по телу цикла. Цикл
-всегда повторяет команды из тела цикла несколько раз — вот каждое такое
-повторение и называется итерацией. В примере выше можно сказать, что
-цикл сделает *n* итераций. Можно, например, сказать, что на пятой
-итерации цикла будет выведена строка "5 25".
+the loop body consists of two statements: assignment and output.
 
-Команда break
+An **iteration** is an individual pass through the loop body. The loop
+always repeats statements of the loop body several times — each such
+repetition is what's called an iteration. In the example above, we can say that
+the loop does *n* iterations. For instance, on the fifth
+loop iteration, the string "5 25" would be displayed.
+
+The break statement
 ~~~~~~~~~~~~~
 
-Команда break обозначает прервать выполнение цикла, и идти дальше
-выполнять те команды, которые идут после цикла. Т.е. если вы в некоторый
-момент решили, что больше вам циклиться не надо, и цикл уже отработал
-все, что надо, и вам нужно переходить к тому, что написано после цикла,
-то пишите break. Если это произошло посреди итерации, то итерация будет
-прервана — тело цикла до конца выполнено не будет.
+The **break** statement stops the execution of the loop and signals to proceed
+executing statements that come after the loop body. So if you decide
+that at some particular moment you don't need to keep looping, the loop had done
+everything you wanted it to, and you need to jump to what's below the body,
+put ``break`` there. If a break happens in the middle of an iteration,
+that iteration is aborted — the rest of the loop body will not be executed.
 
-Пример:
+An example:
 
 ::
 
@@ -257,28 +258,28 @@
         if n % i == 0:
             print(i)
             break
-        print('Попробовали', i, ', не подходит')
-    print('Конец!')
+        print('Tested', i, ', does not match')
+    print('The end!')
 
-— как только условие if'а выполнится, на экран будет выведено
-соответствующее *i*, и выполнение цикла будет прервано — дальше будет
-выведено слово "Конец!" и т.д. При этом строка "Попробовали..." будет
-выводиться для всех i, **не** включая то, на котором выполнилось условие
-цикла.
+— as soon as *if*'s condition becomes true, the corresponding *i* value
+is printed, the loop execution is aborted, and after that "The end!" string
+is printed. Notice that the string "Tested..." would be printed
+for each *i* value, **not** including the one by which the condition became
+true.
 
-Например, для ``n==9`` вывод будет следующий:
+For instance, with ``n==9``, the following would be printed:
 
 ::
 
-    Попробовали 2 , не подходит
+    Tested 2 , does not match
     3
-    Конец!
+    The end!
 
-(Правда, данный конкретный код было бы проще написать через while —
-подумайте, как)
+(In reality, this code could be made simpler by using *while* loops —
+try to figure out how)
 
-Команду break можно также применять и с циклами while и repeat, один из
-примеров будет ниже.
+The *break* statement could be used with *while* and *repeat* loops as well,
+an example is provided further below.
 
 Команда continue
 ~~~~~~~~~~~~~~~~
