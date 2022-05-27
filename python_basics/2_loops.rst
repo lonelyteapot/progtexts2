@@ -278,7 +278,7 @@ For instance, with ``n==9``, the following would be printed:
 (In reality, this code could be made simpler by using *while* loops —
 try to figure out how)
 
-The *break* statement could be used with *while* and *repeat* loops as well,
+The *break* statement can be used with *while* and *repeat* loops as well,
 an example is provided further below.
 
 Команда continue
